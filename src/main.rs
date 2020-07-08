@@ -1,8 +1,8 @@
-use serde::Deserialize;
-use tokio::prelude::*;
-use tokio::time::delay_for;
-use std::time::{Duration, Instant};
+use std::time::Duration;
+
 use reqwest::Client;
+use serde::Deserialize;
+use tokio::time::delay_for;
 
 #[derive(Deserialize, Debug)]
 struct ImageTags {
@@ -26,6 +26,4 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             .await?;
         println!("{:#?}", resp);
     }
-
-    Ok(())
 }
